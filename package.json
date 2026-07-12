@@ -1,0 +1,23 @@
+{
+  "name": "haxalyzer",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/manucatun/Haxalyzer#readme",
+  "bugs": {
+    "url": "https://github.com/manucatun/Haxalyzer/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manucatun/Haxalyzer.git"
+  },
+  "license": "ISC",
+  "author": "manucatun",
+  "type": "commonjs",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "discord.js": "^14.26.5"
+  }
+}
