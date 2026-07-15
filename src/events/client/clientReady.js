@@ -22,7 +22,7 @@ module.exports = async (client) => {
   /* Conexión a la base de datos */
 
   if (client?.application?.commands) {
-    client.application.commands.set(client.slashArray);
+    await client.application.commands.set(client.slashArray);
     console.log(
       `📫 ${client.slashArray.length} Slash Commands Registrados`.brightGreen
         .bold,
