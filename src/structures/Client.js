@@ -47,6 +47,7 @@ module.exports = class extends Client {
 
     this.slashCommands = new Collection();
     this.slashArray = [];
+    this.languages = {};
 
     this.utils = new BotUtils(this);
 
@@ -56,6 +57,7 @@ module.exports = class extends Client {
   async start() {
     await this.loadEvents();
     await this.loadHandlers();
+    await this.loadLanguages();
     await this.loadSlashCommands();
 
     this.login(process.env.TOKEN);
@@ -103,6 +105,32 @@ module.exports = class extends Client {
     }
 
     console.log(`📂 ${rutaArchivos.length} Handlers Cargados`.brightGreen.bold);
+  }
+
+  async loadLanguages() {
+    console.log("🌐 Cargando idiomas...".yellow);
+
+    const rutaArchivos = await this.utils.loadFiles("/src/lang");
+    if (rutaArchivos.length) {
+      rutaArchivos.forEach((archivo) => {
+        try {
+          const idioma = archivo.split("/").pop().split(".")[0];
+          const traducciones = require(archivo);
+
+          this.languages[idioma] = traducciones;
+
+          console.log(`🌐 Idioma cargado: ${idioma}`.brightBlue);
+        } catch (e) {
+          console.log(`🚨 Error al cargar el archivo (${archivo})`.bgRed);
+          console.log(e);
+        }
+      });
+    }
+
+    console.log(
+      `🌐 ${Object.keys(this.languages).length} Idiomas Cargados`.brightGreen
+        .bold,
+    );
   }
 
   async loadSlashCommands() {
