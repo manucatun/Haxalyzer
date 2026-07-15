@@ -138,7 +138,7 @@ module.exports = class extends Client {
     this.slashCommands.clear();
     this.slashArray = [];
 
-    const rutaArchivos = await this.utils.loadFiles("/src/slashCommands");
+    const rutaArchivos = await this.utils.loadFiles("/src/commands");
     if (rutaArchivos.length) {
       rutaArchivos.forEach((archivo) => {
         try {
