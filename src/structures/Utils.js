@@ -1,4 +1,4 @@
-import { glob } from "glob";
+const { glob } = require("glob");
 
 module.exports = class BotUtils {
   constructor(client) {

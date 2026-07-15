@@ -1,5 +1,5 @@
-import("dotenv").config();
-import "colors";
+require("dotenv").config();
+require("colors");
 
 const Bot = require("./structures/Client");
 new Bot();

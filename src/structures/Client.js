@@ -1,4 +1,4 @@
-import {
+const {
   Client,
   GatewayIntentBits,
   Partials,
@@ -6,8 +6,8 @@ import {
   SlashCommandBuilder,
   PresenceUpdateStatus,
   Collection,
-} from "discord.js";
-import BotUtils from "./Utils.js";
+} = require("discord.js");
+const BotUtils = require("./Utils.js");
 
 module.exports = class extends Client {
   constructor(
@@ -106,7 +106,7 @@ module.exports = class extends Client {
   }
 
   async loadSlashCommands() {
-    console.log("⚙️ Cargando Slash Commands...".yellow);
+    console.log("📫 Cargando Slash Commands...".yellow);
     this.slashCommands.clear();
     this.slashArray = [];
 
@@ -133,13 +133,13 @@ module.exports = class extends Client {
     }
 
     console.log(
-      `⚙️ ${rutaArchivos.length} Slash Commands Cargados`.brightGreen.bold,
+      `📫 ${rutaArchivos.length} Slash Commands Cargados`.brightGreen.bold,
     );
 
     if (this?.application?.commands) {
       await this.application.commands.set(this.slashArray);
       console.log(
-        `⚙️ ${this.slashArray.length} Slash Commands Registrados`.brightGreen
+        `📫 ${this.slashArray.length} Slash Commands Registrados`.brightGreen
           .bold,
       );
     }
