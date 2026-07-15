@@ -1,0 +1,8 @@
+{
+  "global": {
+    "error": "> <:error:1319055746909995008> Ocurrió un error inesperado. Por favor, inténtalo de nuevo más tarde."
+  },
+  "interactionCreate": {
+    "ownerOnly": "> <:cross:1319023560500711445> **Este comando solo puede ser usado por los desarrolladores**"
+  }
+}
